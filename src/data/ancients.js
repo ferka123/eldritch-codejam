@@ -74,6 +74,9 @@ const ancientsData = [
     id: 'shubNiggurath',
     name: 'shubNiggurath',
     cardFace: Ancients.shubNiggurath,
+    greenTotal: 6,
+    blueTotal: 2,
+    brownTotal: 8,
     firstStage: {
       green: 1,
       blue: 1,

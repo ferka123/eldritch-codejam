@@ -15,6 +15,7 @@ const config = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   devServer: {
     open: true,
@@ -40,7 +41,10 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset",
+        type: "asset/resource",
+        generator: {
+          filename: 'static/media/[name].[contenthash][ext]'
+        }
       },
 
       // Add your rules for custom modules here
