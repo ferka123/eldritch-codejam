@@ -2,7 +2,7 @@ import ancientsData from "./data/ancients";
 import difficulties from "./data/difficulties";
 import * as cards from "./data/mythicCards/index";
 import './styles.css'
-import cardBackImg from "./assets/mythicCardBackground.png";
+import cardBackImg from "./assets/mythicCardBackground.jpg";
 
 const deck = {}
 let ancient = ancientsData[0],
