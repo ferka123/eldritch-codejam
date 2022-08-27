@@ -38,14 +38,14 @@ for (let cardColor in cards) {
 ['firstStage','secondStage','thirdStage'].forEach(stage=>{
     deck[stage] = [];
     for (let color in ancient[stage]) {
-        const count = ancient[stage][color];
+        const tracker = document.querySelector(`.dot.${stage}.${color}`);
+        const count = ancient[stage][color];    
+        tracker.textContent = count;
         for (let i=0; i < count; i++) {
             const elem = deck[color].pop();
-            elem.stage = stage;
+            elem.tracker = tracker;
             deck[stage].push(elem)
         }
-        const dot = document.querySelector(`.dot.${stage}.${color}`)
-        dot.textContent = count
     }
     deck[stage] = shuffleArray(deck[stage])
 })
@@ -56,8 +56,7 @@ cardBack.onclick = () => {
     if (deck.final) {
       const currentCard  = deck.final.pop();
       console.log(currentCard);
-      const dot = document.querySelector(`.dot.${currentCard.stage}.${currentCard.color}`)
-      dot.textContent -= 1;
+      currentCard.tracker.textContent -= 1;
       cardFace.style.backgroundImage = `url("${currentCard.cardFace}")`
       if (deck.final.length === 0) {
         deck.final = null;
